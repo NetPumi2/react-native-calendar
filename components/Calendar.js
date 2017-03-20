@@ -31,6 +31,9 @@ export default class Calendar extends Component {
   };
 
   static propTypes = {
+
+    moje: PropTypes.bool,
+
     currentMonth: PropTypes.any,
     customStyle: PropTypes.object,
     dayHeadings: PropTypes.array,
@@ -221,7 +224,7 @@ export default class Calendar extends Component {
           />
         ));
       } else {
-        days.push(<Day key={`${renderIndex}`} filler customStyle={this.props.customStyle} />);
+        days.push(<Day key={`${renderIndex}`} moje={this.props.moje} filler customStyle={this.props.customStyle} />);
       }
       if (renderIndex % 7 === 6) {
         weekRows.push(

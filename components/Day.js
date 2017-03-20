@@ -14,6 +14,9 @@ export default class Day extends Component {
   }
 
   static propTypes = {
+
+    moje: PropTypes.bool,
+
     caption: PropTypes.any,
     customStyle: PropTypes.object,
     filler: PropTypes.bool,
@@ -68,6 +71,9 @@ export default class Day extends Component {
   render() {
     let { caption, customStyle } = this.props;
     const {
+
+      moje,
+
       filler,
       event,
       isWeekend,
@@ -91,6 +97,15 @@ export default class Day extends Component {
             <Text style={this.dayTextStyle(isWeekend, isSelected, isToday, event)}>{caption}</Text>
           </View>
           {showEventIndicators &&
+            <View style={[
+              styles.eventIndicatorFiller,
+              customStyle.eventIndicatorFiller,
+              event && styles.eventIndicator,
+              event && customStyle.eventIndicator,
+              event && event.eventIndicator]}
+            />
+          }
+          {moje &&
             <View style={[
               styles.eventIndicatorFiller,
               customStyle.eventIndicatorFiller,
