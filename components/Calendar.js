@@ -221,6 +221,7 @@ export default class Calendar extends Component {
             event={events && events[dayIndex]}
             showEventIndicators={this.props.showEventIndicators}
             customStyle={this.props.customStyle}
+            moje={this.props.moje}
           />
         ));
       } else {
